@@ -32,6 +32,5 @@ void main()
     }
 
    }while(lettre!=27);
-
-
+    
 }
