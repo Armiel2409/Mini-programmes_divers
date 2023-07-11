@@ -55,9 +55,6 @@ temps = ps.time
 
 te = 1/(Frequence*10e2)
 
-
-
-
 # TRAITEMENT DU SIGNAL
 
 offset_corrector = 0
@@ -100,7 +97,9 @@ for i in range(len(B)):
 chunk = []
 cumulated_chunk = []
 compteur = 0
-moyenne = []
+
+
+# Séparation en chunks
 
 for i in range(len(B)):
     
@@ -119,6 +118,15 @@ for i in range(len(cumulated_chunk)):
     for j in range(len(cumulated_chunk[i])):
         moyenne=cumulated_chunk[i][j]+cumulated_chunk[i+1]
     
+# Moyennage 
+
+compteur = 0
+moyenne = []
+
+for i in range(len(cumulated_chunk[0])):
+    for j in range(len(cumulated_chunk)):
+        compteur+=cumulated_chunk[j][i]
+    moyenne.append(compteur/len(cumulated_chunk))
     
 # TRACÉS DES COURBES
 
@@ -148,7 +156,6 @@ trace_hysteresis.plot(H,B)
 
 
 ps.close()
-
 
 
 
