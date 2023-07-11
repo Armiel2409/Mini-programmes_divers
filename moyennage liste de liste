@@ -1,0 +1,10 @@
+ma_liste = [[1,5,9],[3,7,11],[3,6,10.5]]
+moyenne = []
+a=0
+
+for i in range(len(ma_liste[0])):
+    for j in range(len(ma_liste)):
+        a+=ma_liste[j][i]
+    moyenne.append(a/len(ma_liste))
+
+print(moyenne)
